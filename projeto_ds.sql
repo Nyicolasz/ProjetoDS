@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 19/10/2023 às 21:26
+-- Tempo de geração: 20/10/2023 às 01:31
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.1.17
 
@@ -31,12 +31,22 @@ CREATE TABLE `candidato` (
   `ID_Cand` int(11) NOT NULL,
   `Nome_Cand` varchar(25) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `telefone` int(15) NOT NULL,
+  `telefone` varchar(17) NOT NULL,
+  `dt_nasc` varchar(10) NOT NULL,
   `CPF` varchar(13) NOT NULL,
   `rua` varchar(100) NOT NULL,
-  `Estado` varchar(2) NOT NULL,
+  `bairro` varchar(100) NOT NULL,
+  `Estado` varchar(30) NOT NULL,
   `Cidade` varchar(30) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `candidato`
+--
+
+INSERT INTO `candidato` (`ID_Cand`, `Nome_Cand`, `email`, `telefone`, `dt_nasc`, `CPF`, `rua`, `bairro`, `Estado`, `Cidade`) VALUES
+(1, 'leticia', 'teste@teste.com', '+55 11 1234-56789', '19/10/2023', '123456789-10', 'XXXX', 'XXXX', 'GO - Goiás', 'XXXX'),
+(2, 'leticia', 'teste@teste.com', '+55 11 1234-56789', '19/10/2023', '123456789-10', 'XXXXXXXX', 'XXXXX', 'GO - Goiás', 'xXXXX');
 
 -- --------------------------------------------------------
 
@@ -118,7 +128,7 @@ ALTER TABLE `vagas`
 -- AUTO_INCREMENT de tabela `candidato`
 --
 ALTER TABLE `candidato`
-  MODIFY `ID_Cand` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Cand` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
