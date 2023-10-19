@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17-Out-2023 às 13:15
+-- Tempo de geração: 10-Out-2023 às 14:03
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.1.2
 
@@ -30,22 +30,10 @@ SET time_zone = "+00:00";
 CREATE TABLE `candidato` (
   `ID_Cand` int(11) NOT NULL,
   `Nome_Cand` varchar(25) NOT NULL,
-  `Telefone` varchar(15) NOT NULL,
-  `Email` varchar(100) NOT NULL,
   `CPF` varchar(13) NOT NULL,
-  `Rua` varchar(50) NOT NULL,
-  `Bairro` varchar(50) NOT NULL,
-  `Cidade` varchar(30) NOT NULL,
-  `Estado` varchar(2) NOT NULL
+  `Estado` varchar(2) NOT NULL,
+  `Cidade` varchar(30) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `candidato`
---
-
-INSERT INTO `candidato` (`ID_Cand`, `Nome_Cand`, `Telefone`, `Email`, `CPF`, `Rua`, `Bairro`, `Cidade`, `Estado`) VALUES
-(1, 'Nycolas', '111111', '@teste', '99999999999', 'Rua X', 'Bairro X', 'São Paulo', 'SP'),
-(2, 'Leticia', '2222222', '@email', '8888888', 'Rua Y', 'Bairro Y', 'São Paulo', 'SP');
 
 -- --------------------------------------------------------
 
@@ -57,14 +45,6 @@ CREATE TABLE `candidato_vaga` (
   `ID_Cand` int(11) NOT NULL,
   `ID_Vaga` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `candidato_vaga`
---
-
-INSERT INTO `candidato_vaga` (`ID_Cand`, `ID_Vaga`) VALUES
-(1, 2),
-(2, 1);
 
 -- --------------------------------------------------------
 
@@ -80,14 +60,6 @@ CREATE TABLE `empresa` (
   `Cidade` varchar(30) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
---
--- Extraindo dados da tabela `empresa`
---
-
-INSERT INTO `empresa` (`ID_Empresa`, `Nome_Empresa`, `CNPJ`, `Estado`, `Cidade`) VALUES
-(1, 'Empresa FIC', '6666666', 'SP', 'São Paulo'),
-(2, 'Empresa Ticia', '4444444444', 'SP', 'São Paulo');
-
 -- --------------------------------------------------------
 
 --
@@ -99,14 +71,6 @@ CREATE TABLE `empresa_vaga` (
   `ID_Vaga` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
---
--- Extraindo dados da tabela `empresa_vaga`
---
-
-INSERT INTO `empresa_vaga` (`ID_Empresa`, `ID_Vaga`) VALUES
-(1, 1),
-(2, 2);
-
 -- --------------------------------------------------------
 
 --
@@ -116,18 +80,10 @@ INSERT INTO `empresa_vaga` (`ID_Empresa`, `ID_Vaga`) VALUES
 CREATE TABLE `vagas` (
   `ID_Vaga` int(11) NOT NULL,
   `N_Vagas` int(25) NOT NULL,
-  `Nome_Vaga` varchar(20) NOT NULL,
+  `Cargo` varchar(20) NOT NULL,
   `Descricao` varchar(100) NOT NULL,
   `Salario` varchar(10) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `vagas`
---
-
-INSERT INTO `vagas` (`ID_Vaga`, `N_Vagas`, `Nome_Vaga`, `Descricao`, `Salario`) VALUES
-(1, 10, 'Professor', 'Professor Tecnico de DS', '3000'),
-(2, 5, 'Limpeza', 'limpeza de Janelas', '4000');
 
 --
 -- Índices para tabelas despejadas
@@ -159,19 +115,13 @@ ALTER TABLE `vagas`
 -- AUTO_INCREMENT de tabela `candidato`
 --
 ALTER TABLE `candidato`
-  MODIFY `ID_Cand` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID_Cand` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `empresa`
 --
 ALTER TABLE `empresa`
-  MODIFY `ID_Empresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de tabela `vagas`
---
-ALTER TABLE `vagas`
-  MODIFY `ID_Vaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID_Empresa` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
